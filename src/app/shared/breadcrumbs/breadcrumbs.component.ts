@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _router: Router
+  ) { }
 
   ngOnInit() {
   }
-
+  buscar( termino: string ) {
+    this._router.navigate(['/busquedaGeneral', termino ]);
+  }
 }

@@ -1,3 +1,44 @@
-<p>
-  login works!
-</p>
+<div>
+
+    <div class="login_wrapper animate fadeIn fast">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <form>
+                    <h1>Acceso a Wiki</h1>
+
+                    <div>
+                        <!-- <a class="btn btn-default submit" href="index.html">Log in</a> -->
+                        <div *ngIf="!this._us.usuarioLogin">
+                            <button class="btn btn-danger" (click)="login()">Iniciar sesión con Goolge</button>
+                        </div>
+                        <div *ngIf="this._us.usuarioLogin">
+                            <button class="btn btn-primary" routerLink="/inicio">Entrar</button>
+                            <div class="clearfix"></div>
+
+                            <button class="btn btn-danger" (click)="logOut()">Cerrar sesión con Goolge</button>
+                        </div>
+                        <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <br />
+
+                    <div class="separator">
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-bug"></i> Wiki </h1>
+                            <p>2018. Wiki está realizado con una plantilla Bootstrap 3</p>
+                            <p><a target="_blank" href="{{ urlJokosoft }}">Jokosoft</a></p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+    </div>
+</div>

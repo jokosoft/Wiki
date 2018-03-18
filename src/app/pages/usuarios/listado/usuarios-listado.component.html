@@ -1,0 +1,44 @@
+<div *ngIf="!listadoUsuarios">
+    <h4>Cargando Usuarios...</h4>
+</div>
+<div *ngIf="listadoUsuarios">
+    <div *ngIf="listadoUsuarios.length <= 0">
+        <h4>No hay Usuarios Registrados</h4>
+    </div>
+    <div *ngIf="listadoUsuarios.length > 0">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of listadoUsuarios">
+                    <td>
+                        <img [src]="usuario.img | imagen" class="img-circle fotoUsuarioListado">
+                    </td>
+                    <td>
+                        {{ usuario.nombre }}
+                    </td>
+                    <td>
+                        {{ usuario.email }}
+                    </td>
+                    <td>
+                        <!-- <button [routerLink]="['/medico', medico._id ]" class="btn btn-primary"> -->
+                        <button class="btn btn-primary">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+                        <!-- <button (click)="borrarMedico( medico )" class="btn btn-danger"> -->
+                        <button class="btn btn-danger">
+                                <i class="fa fa-trash-o"></i>
+                            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

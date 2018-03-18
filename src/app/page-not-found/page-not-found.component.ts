@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare function init_plugins();
+
 @Component({
   selector: 'app-page-not-found',
   templateUrl: './page-not-found.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove('login');   // remove the class
+    body.classList.add('nav-md');   // add the class
+  }
 
   ngOnInit() {
+    init_plugins();
   }
 
 }
