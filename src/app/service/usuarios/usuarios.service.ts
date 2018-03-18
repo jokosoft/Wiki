@@ -17,7 +17,7 @@ export class UsuariosService {
   public usuarioLogin: Usuario = new Usuario();
 
   constructor(
-      private _afs: AngularFirestore,
+      public _afs: AngularFirestore,
       public _afAuth: AngularFireAuth
   ) {
       this._afAuth.authState.subscribe( user => {
@@ -62,13 +62,13 @@ export class UsuariosService {
         if ( querySnapshot.empty ) {
           // inserta el usuario
           this.insertarUsuario( usuarioBuscar )
-          .then(function(docRef) {
-            //  guarda los datos en local storage
-            this.guardarUsuarioLocalStorage ( usuarioBuscar );
-          })
-          .catch(function(error) {
-              console.error('Error adding document: ', error);
-          });
+                .then(function(docRef) {
+                  //  guarda los datos en local storage
+                  this.guardarUsuarioLocalStorage ( usuarioBuscar );
+                })
+                .catch(function(error) {
+                    console.error('Error adding document: ', error);
+                });
         } else {
           //  guarda los datos en local storage
           this.guardarUsuarioLocalStorage ( usuarioBuscar );
