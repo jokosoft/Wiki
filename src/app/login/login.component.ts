@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuariosService } from '../service/service.index';
+import { LoginService } from '../service/service.index';
 import { URL_JOKOSOFT } from '../configuracion/config';
+import { Usuario } from '../models/Usuario.model';
 
 declare function init_plugins();
 
@@ -12,12 +13,15 @@ declare function init_plugins();
 })
 export class LoginComponent implements OnInit {
 
-public urlJokosoft = URL_JOKOSOFT;
+  public urlJokosoft = URL_JOKOSOFT;
+  public usuarioLogin: Usuario;
 
   constructor(
     public _router: Router,
-    public _us: UsuariosService
+    public _ls: LoginService
   ) {
+
+    // establece las clases adecuadas para la página de login
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('nav-md');   // remove the class
     body.classList.add('login');   // add the class
@@ -26,18 +30,17 @@ public urlJokosoft = URL_JOKOSOFT;
 
   ngOnInit() {
     init_plugins();
+
+    // se intenta obtener los datos del usuario de local storage, carga null si no existen aun
+    this.usuarioLogin = this._ls.obtenerUsuarioLocalStorage();
   }
 
   login() {
-    this._us.login()
-    .then( () => {
-      this._router.navigate(['/inicio']);
-    })
-    .catch( (err) => console.log(err) );
+    this._ls.login();
   }
 
   logOut() {
-    this._us.logout();
+    this._ls.logout();
   }
 
 }

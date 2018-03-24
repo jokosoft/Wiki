@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { PipesModule } from '../pipes/pipes.module';
 
 import {
+  LoginService,
   SharedService,
   UsuariosService
 } from './service.index';
@@ -28,6 +29,7 @@ import {
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
   ],
   providers: [
+    LoginService,
     SharedService,
     UsuariosService
   ],

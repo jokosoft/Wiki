@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../service/service.index';
+import { LoginService } from '../../service/service.index';
 import { Router } from '@angular/router';
 import { Usuario } from '../../models/Usuario.model';
 
@@ -15,18 +15,18 @@ export class SidebarComponent implements OnInit {
 
 
   constructor(
-    public _us: UsuariosService,
+    public _ls: LoginService,
     public _router: Router
   ) {
       // carga los datos del usuario logado
-      this.usuarioLogin = _us.obtenerUsuarioLocalStorage();
+      this.usuarioLogin = _ls.obtenerUsuarioLocalStorage();
   }
 
   ngOnInit() {
   }
 
   logOut () {
-    this._us.logout()
+    this._ls.logout()
     .then( () => {
       this._router.navigate(['/login']);
     })

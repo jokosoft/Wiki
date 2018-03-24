@@ -8,10 +8,10 @@
 
                     <div>
                         <!-- <a class="btn btn-default submit" href="index.html">Log in</a> -->
-                        <div *ngIf="!this._us.usuarioLogin">
+                        <div *ngIf="!usuarioLogin">
                             <button class="btn btn-danger" (click)="login()">Iniciar sesión con Goolge</button>
                         </div>
-                        <div *ngIf="this._us.usuarioLogin">
+                        <div *ngIf="usuarioLogin">
                             <button class="btn btn-primary" routerLink="/inicio">Entrar</button>
                             <div class="clearfix"></div>
 

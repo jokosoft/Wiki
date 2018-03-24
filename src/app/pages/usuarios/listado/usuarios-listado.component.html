@@ -12,6 +12,7 @@
                     <th>Foto</th>
                     <th>Nombre</th>
                     <th>Email</th>
+                    <th>Autorizado</th>
                     <th></th>
                 </tr>
             </thead>
@@ -25,6 +26,9 @@
                     </td>
                     <td>
                         {{ usuario.email }}
+                    </td>
+                    <td>
+                        {{ usuario.auth | boleano }}
                     </td>
                     <td>
                         <!-- <button [routerLink]="['/medico', medico._id ]" class="btn btn-primary"> -->
