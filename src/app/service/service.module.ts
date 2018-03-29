@@ -15,7 +15,9 @@ import { PipesModule } from '../pipes/pipes.module';
 import {
   LoginService,
   SharedService,
-  UsuariosService
+  TemasService,
+  UsuariosService,
+  EsAutorizadoGuard
 } from './service.index';
 
 @NgModule({
@@ -31,7 +33,9 @@ import {
   providers: [
     LoginService,
     SharedService,
-    UsuariosService
+    TemasService,
+    UsuariosService,
+    EsAutorizadoGuard
   ],
   declarations: []
 })

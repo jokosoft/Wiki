@@ -5,13 +5,20 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AboutComponent } from './about/about.component';
 import { BusquedaGeneralComponent } from './busqueda-general/busqueda-general.component';
 
+import { EsAutorizadoGuard } from '../service/service.index';
+import { TemasComponent } from './temas/temas.component';
+
 
 
 
 const pagesRoutes: Routes = [
-    { path: 'inicio', component: InicioComponent, data: { titulo: 'Inicio' } },
+    { path: 'inicio', component: InicioComponent,
+         data: { titulo: 'Inicio' } },
     { path: 'busquedaGeneral/:termino', component: BusquedaGeneralComponent, data: { titulo: 'Busqueda General' } },
-    { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuarios' } },
+    { path: 'usuarios', component: UsuariosComponent,
+                        canActivate: [ EsAutorizadoGuard ],
+                        data: { titulo: 'Usuarios' } },
+    { path: 'temas', component: TemasComponent, data: { titulo: 'Temas' } },
     { path: 'about', component: AboutComponent, data: { titulo: 'About' } },
     { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];

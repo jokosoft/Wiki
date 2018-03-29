@@ -17,13 +17,13 @@ export class UsuariosService {
 
   constructor(
       private _afs: AngularFirestore
-  ) {}
+  ) { }
 
   // CRUD
 
   // Crud: alta de usuario
   public insertarUsuario( usuarioInsert: Usuario ) {
-    console.log('entra a insertar usuario', usuarioInsert);
+
     return this._afs.collection<Usuario>('usuarios')
     .add( { uid: usuarioInsert.uid,
             nombre: usuarioInsert.nombre,
@@ -54,4 +54,33 @@ export class UsuariosService {
     return bIsOk;
   }
 
+  // buscar usuario por uid
+  obtenerUsuario ( uid: string ) {
+    let db = firebase.firestore();
+
+    let promesa = new Promise( ( resolve, reject ) => {
+
+      if ( uid !== null && uid !== '' ) {
+
+        db.collection('usuarios').where('uid', '==', uid)
+        .get()
+        .then((querySnapshot: any) => {
+            // no encuentra el usuario en bd
+            if ( querySnapshot.empty ) {
+              resolve();
+            } else {
+              resolve( querySnapshot );
+            }
+        })
+        .catch(function(error) {
+          reject();
+          console.log('Error obteniendo usuario por uid: ', uid);
+        });
+      } else {
+        resolve();
+      }
+
+      });
+      return promesa;
+  }
 }

@@ -14,6 +14,7 @@ import { BusquedaGeneralComponent } from './busqueda-general/busqueda-general.co
 import { UsuariosListadoComponent } from './usuarios/listado/usuarios-listado.component';
 import { UsuariosBusquedaComponent } from './usuarios/busqueda/usuarios-busqueda.component';
 import { UsuariosAltaEdicionComponent } from './usuarios/alta-modificacion/usuarios-alta-edicion.component';
+import { TemasComponent } from './temas/temas.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { UsuariosAltaEdicionComponent } from './usuarios/alta-modificacion/usuar
     BusquedaGeneralComponent,
     UsuariosListadoComponent,
     UsuariosBusquedaComponent,
-    UsuariosAltaEdicionComponent]
+    UsuariosAltaEdicionComponent,
+    TemasComponent]
 })
 export class PagesModule { }

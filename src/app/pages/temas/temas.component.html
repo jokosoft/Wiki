@@ -1,0 +1,84 @@
+<!-- page content -->
+<div class="right_col animate fadeIn fast" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Temas wiki</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <!-- CONTENIDO -->
+                        <div *ngIf="!listadoTemas">
+                            <h4>Cargando Temas...</h4>
+                        </div>
+
+                        <div *ngIf="listadoTemas">
+
+                            <div class="row x_title">
+                                <div class="col-md-1">
+                                    <button type="button" (click)="nuevoTema(nuevo)" class="btn waves-effect waves-light btn-rounded btn-primary">
+                                                            <i class="fa fa-plus"></i> 
+                                                            Nuevo
+                                                        </button>
+                                </div>
+                                <div class="col-md-11">
+                                    <input #nuevo type="text" (keyup.enter)="nuevoTema(nuevo)" class="form-control" style="float:left;" placeholder="Nombre del Tema...">
+                                </div>
+                            </div>
+
+                            <div *ngIf="listadoTemas.length <= 0">
+                                <h4>No hay Temas !!</h4>
+                            </div>
+                            <div *ngIf="listadoTemas.length > 0">
+
+
+                                <ul class="list-group">
+                                    <li class="list-group-item" *ngFor='let tema of listadoTemas'>
+
+                                        <button class="btn btn-danger" (click)="eliminar(tema)">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+
+                                        <span class="marg_L_10 ">{{tema}}</span>
+
+                                    </li>
+                                </ul>
+
+
+                                <div *ngIf="mostrarDetalle">
+                                    detalle
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- FIN CONTENIDO -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

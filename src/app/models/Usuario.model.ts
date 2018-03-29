@@ -6,14 +6,14 @@ export class Usuario {
         public email?: string,
         public img?: string,
         public auth?: boolean,
-        // public password?: string,
-        // public role?: string,
-        // public _id?: string
+        public password?: string,
+        public role?: string,
+        public _id?: string
     ) { }
 
-    // public toString = (): string => {
+    public toString = (): string => {
 
-    //     return `Usuario (uid: ${this.uid}, nombre: ${this.nombre}, email: ${this.email}, img: ${this.img})`;
-    // }
+        return `Usuario (uid: ${this.uid}, nombre: ${this.nombre}, email: ${this.email}, img: ${this.img})`;
+    }
 
 }

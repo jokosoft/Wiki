@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../service/service.index';
 
 declare function init_plugins();
 
@@ -9,10 +10,20 @@ declare function init_plugins();
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  public esAutorizado = '...';
+
+  constructor(
+    private _ls: LoginService
+  ) {
+
+   }
 
   ngOnInit() {
     init_plugins();
+
+    this._ls.esAutorizado()
+    .then ( ( resultado: boolean ) => this.esAutorizado = 'Autorizado ' + resultado );
+
   }
 
 

@@ -33,19 +33,17 @@ export class LoginService {
                     this.validarInsertarUsuario(usuario)
                         .then( usuarioBD => {
                           if (usuarioBD) {
-                            console.log('despues de validar insertar usuario, EXISTE', usuarioBD);
                             // guarda los datos del usuario
-                            this.guardarUsuarioLocalStorage(usuario);
+                            this.guardarUsuarioLocalStorage(usuarioBD);
 
                             // se redirige a la página de entrada en la app
                             this._router.navigate(['/']);
                           } else {
-                            console.log('despues de validar insertar usuario NOO EXISTE', usuarioBD);
+
                             // se monta objeto con los datos del usuario
-                            console.log('insertar elusuario', usuario);
                             this._us.insertarUsuario( usuario )
                                   .then( (docRef) => {
-                                      console.log('usuario insertado: ', docRef);
+
                                       // guarda los datos del usuario
                                       this.guardarUsuarioLocalStorage(usuario);
 
@@ -75,16 +73,7 @@ export class LoginService {
               this.errorVuelveLogin( 'Error en autenticación' );
             } );
   }
-/*// inserta el usuario
-            // this._us.insertarUsuario( usuarioBuscar )
-            //       .then( (docRef) => {
-            //           console.error('usuario insertado: ', docRef);
-            //           resolver(docRef);
-            //       })
-            //       .catch( (error) => {
-            //           console.error('Error insertando usuario: ', error);
-            //           rejectt();
-            //       }); */
+
   private obtenerDatosLoginAuth() {
 
     let usuarioLogin: Usuario;
@@ -127,6 +116,40 @@ export class LoginService {
     this._router.navigate(['/login']);
   }
 
+  public esAutorizado() {
+    let db = firebase.firestore();
+    let uidUsuario = localStorage.getItem('uid');
+
+    let promesa = new Promise( ( resolver, rejectt ) => {
+
+      if ( uidUsuario !== null && uidUsuario !== '' ) {
+
+        this._us.obtenerUsuario (uidUsuario)
+        .then((querySnapshot: any) => {
+            if (querySnapshot) {
+
+              let doc: Usuario = querySnapshot.docs[0].data();
+              if ( doc && doc.auth) {
+                resolver (true);
+              } else {
+                resolver (false);
+              }
+            } else {
+              resolver (false);
+            }
+        })
+        .catch(function(error) {
+          rejectt();
+          console.log('Error obteniendo usuario para verificación autorizado: ', error);
+        });
+      } else {
+        resolver (false);
+      }
+    });
+
+    return promesa;
+  }
+
 
   validarInsertarUsuario ( usuarioBuscar: Usuario ) {
 
@@ -138,11 +161,12 @@ export class LoginService {
       .then((querySnapshot) => {
           // no encuentra el usuario en bd
           if ( querySnapshot.empty ) {
-            console.log('validarInsertarUsuario', 'No encontrado en bd', usuarioBuscar.uid);
+
             resolver();
           } else {
-            console.log('validarInsertarUsuario', 'Encontrado en bd');
-            resolver(usuarioBuscar);
+            // se obtiene el usuario de bd
+            let doc: Usuario = querySnapshot.docs[0].data();
+            resolver(doc);
           }
 
       })
@@ -167,6 +191,7 @@ export class LoginService {
         localStorage.setItem('nombre', usuario.nombre);
         localStorage.setItem('email', usuario.email);
         localStorage.setItem('img', usuario.img);
+        localStorage.setItem('xxx', String(usuario.auth));
       } else {
         // no hay usuario que guardar
         console.log('No existe usuario logado que guardar en LocalStorage', usuario);
@@ -178,6 +203,7 @@ export class LoginService {
       localStorage.removeItem('nombre');
       localStorage.removeItem('email');
       localStorage.removeItem('img');
+      localStorage.removeItem('xxx');
   }
 
   obtenerUsuarioLocalStorage(): Usuario {
@@ -185,9 +211,9 @@ export class LoginService {
       localStorage.getItem('uid'),
       localStorage.getItem('nombre'),
       localStorage.getItem('email'),
-      localStorage.getItem('img')
+      localStorage.getItem('img'),
+      Boolean( localStorage.getItem('xxx') )
     );
-
     if (usuario.uid === null || usuario.uid === '') {
       usuario = null;
     }
