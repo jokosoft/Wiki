@@ -1,0 +1,97 @@
+<!-- page content -->
+<div class="right_col animate fadeIn fast" role="main">
+    <div class="">
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Wiki</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <!-- CONTENIDO -->
+                        <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarWiki(f)">
+
+                            <div class="form-group">
+                                <label>Tema de la Wiki</label>
+                                <select [(ngModel)]="wiki.tema" name="tema" class="form-control" required>
+                                  <option value="">{{registroInicial}}</option>
+                                  <option *ngFor="let tema of temas" [value]="tema">
+                                    {{ tema }}
+                                  </option>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Titulo de la Wiki</label>
+                                <input [(ngModel)]="wiki.titulo" name="titulo" type="text" class="form-control" placeholder="Título de la wiki" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Artìculo</label>
+                                <textarea [(ngModel)]="wiki.articulo" name="articulo" rows="3" class="form-control" placeholder="Contenido del artículo" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                              <i class="fa fa-save"></i>
+                              Guardar
+                            </button>
+                        </form>
+
+                        <!-- FIN CONTENIDO -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Wiki</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <!-- CONTENIDO -->
+                        WIKI
+
+                        <!-- FIN CONTENIDO -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

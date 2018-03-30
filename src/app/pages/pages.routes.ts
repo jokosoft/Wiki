@@ -7,6 +7,7 @@ import { BusquedaGeneralComponent } from './busqueda-general/busqueda-general.co
 
 import { EsAutorizadoGuard } from '../service/service.index';
 import { TemasComponent } from './temas/temas.component';
+import { WikiComponent } from './wiki/wiki.component';
 
 
 
@@ -19,6 +20,7 @@ const pagesRoutes: Routes = [
                         canActivate: [ EsAutorizadoGuard ],
                         data: { titulo: 'Usuarios' } },
     { path: 'temas', component: TemasComponent, data: { titulo: 'Temas' } },
+    { path: 'wiki', component: WikiComponent, data: { titulo: 'Wiki' } },
     { path: 'about', component: AboutComponent, data: { titulo: 'About' } },
     { path: '', redirectTo: '/inicio', pathMatch: 'full' }
 ];
