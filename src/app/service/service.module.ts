@@ -17,6 +17,7 @@ import {
   SharedService,
   TemasService,
   UsuariosService,
+  WikiService,
   EsAutorizadoGuard
 } from './service.index';
 
@@ -35,6 +36,7 @@ import {
     SharedService,
     TemasService,
     UsuariosService,
+    WikiService,
     EsAutorizadoGuard
   ],
   declarations: []

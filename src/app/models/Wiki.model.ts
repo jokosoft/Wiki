@@ -1,13 +1,13 @@
 import { Usuario } from './Usuario.model';
 
 export class Wiki {
-    public _id?: String;
+    public _id?: string;
     public usuario: Usuario;
     public fecha: Date;
-    public tema: String;
-    public titulo: String;
-    public articulo: String;
-    public imagenes?: String[];
+    public tema: string;
+    public titulo: string;
+    public articulo: string;
+    public imagenes?: string[];
     public comentarios?: Comentario[];
 
     constructor () {
@@ -23,11 +23,11 @@ export class Wiki {
 }
 
 export class Comentario {
-    public _id?: String;
+    public _id?: string;
     public usuario: Usuario;
     public fecha: Date;
-    public comentario: String;
-    public imagenes?: String[];
+    public comentario: string;
+    public imagenes?: string[];
 
     constructor () {
         this._id = '';

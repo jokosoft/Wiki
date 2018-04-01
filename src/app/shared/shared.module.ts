@@ -9,6 +9,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 
 @NgModule({
@@ -21,13 +22,15 @@ import { FooterComponent } from './footer/footer.component';
     BreadcrumbsComponent,
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    WysiwygComponent
   ],
   exports: [
     BreadcrumbsComponent,
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    WysiwygComponent
   ]
 })
 export class SharedModule { }

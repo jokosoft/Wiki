@@ -8,7 +8,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Wiki</h2>
+                        <h2>Nueva Wiki</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -60,10 +60,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Wiki</h2>
+                        <h2>Wikis</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -82,11 +83,45 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        <div *ngIf="!wikis">
+                            Cargando Wikis...
+                        </div>
+                        <div *ngIf="wikis">
+                            <!-- CONTENIDO wiki-->
+                            <div class="col-md-12 col-sm-12 col-xs-12 profile_details" *ngFor="let wiki of wikis">
+                                <div class="well profile_view">
+                                    <div class="col-sm-12">
+                                        <h4 class="brief"><i>{{ wiki.tema }}</i></h4>
+                                        <div class="left col-xs-6">
+                                            <h2>{{ wiki.titulo }}</h2>
+                                            <p><strong> {{ wiki.usuario }} </strong>{{ wiki.fecha | date:'short' }}</p>
+                                            <p><i class="fa fa-bug"></i></p>
+                                        </div>
+                                        <div class="left col-xs-6">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 text-justify">
+                                        <p>
+                                            {{ wiki.articulo | elipsis: 200}}
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 bottom text-center">
+                                        <div class="col-xs-12 col-sm-6 emphasis">
+                                            <p class="ratings">
+                                                <a>4 Comentarios</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 emphasis">
+                                            <button type="button" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-bug"> </i> Ver wiki completa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FIN CONTENIDO wiki-->
+                        </div>
 
-                        <!-- CONTENIDO -->
-                        WIKI
-
-                        <!-- FIN CONTENIDO -->
 
                     </div>
                 </div>
