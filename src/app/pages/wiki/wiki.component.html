@@ -88,21 +88,19 @@
                         </div>
                         <div *ngIf="wikis">
                             <!-- CONTENIDO wiki-->
-                            <div class="col-md-12 col-sm-12 col-xs-12 profile_details" *ngFor="let wiki of wikis">
+                            <div class="col-md-6 col-sm-6 col-xs-6 profile_details" *ngFor="let wiki of wikis">
                                 <div class="well profile_view">
                                     <div class="col-sm-12">
                                         <h4 class="brief"><i>{{ wiki.tema }}</i></h4>
-                                        <div class="left col-xs-6">
+                                        <div class="left col-xs-12">
                                             <h2>{{ wiki.titulo }}</h2>
-                                            <p><strong> {{ wiki.usuario }} </strong>{{ wiki.fecha | date:'short' }}</p>
+                                            <p><strong> {{ wiki.usuario }} </strong>{{ wiki.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
                                             <p><i class="fa fa-bug"></i></p>
-                                        </div>
-                                        <div class="left col-xs-6">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-justify">
-                                        <p>
-                                            {{ wiki.articulo | elipsis: 200}}
+                                        <p class="block-with-text-3lines">
+                                            {{ wiki.articulo}}
                                         </p>
                                     </div>
                                     <div class="col-xs-12 bottom text-center">
@@ -112,14 +110,23 @@
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 emphasis">
-                                            <button type="button" class="btn btn-primary btn-xs">
-                                                <i class="fa fa-bug"> </i> Ver wiki completa
+                                            <button type="button" class="btn btn-primary btn-xs pull-right">
+                                                Ver wiki completa
+                                                <i class="fa fa-angle-double-right"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- FIN CONTENIDO wiki-->
+                            <div class="clearfix"></div>
+                            <button class="btn btn-success waves-effect waves-light m-r-10" (click)="paginaInicio()">
+                                Inicio
+                              </button>
+                            <button class="btn btn-success waves-effect waves-light m-r-10" (click)="paginaSiguiente()">
+                                <i class="fa fa-plus-circle"></i>
+                                Mas Resultados
+                              </button>
                         </div>
 
 

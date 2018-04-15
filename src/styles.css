@@ -65,3 +65,11 @@
 .marg_L_10 {
     margin-left: 10px;
 }
+
+.block-with-text-3lines {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
