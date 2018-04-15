@@ -59,17 +59,13 @@ public registroInicial = 'Cargando Temas...';
     this._ws.listado('')
         .subscribe((data) => {
           this.wikis = data;
-          console.log('listado inicial', data);
         });
   }
 
   guardarWiki(forma) {
     this._ws.insertar(forma.value);
     this.wiki = new Wiki;
-    this._ws.listado('')
-        .subscribe((data) => {
-          this.wikis = data;
-        });
+    this.paginaInicio();
   }
 
 }
