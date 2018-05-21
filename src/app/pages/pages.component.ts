@@ -21,7 +21,7 @@ export class PagesComponent implements OnInit {
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('login');   // remove the class
     body.classList.add('nav-md');   // add the class
-   }
+  }
 
   ngOnInit() {
     this.bPrimeraEntrada = false;

@@ -6,6 +6,7 @@
 
         <div class="row animate fadeIn fast">
             <div class="col-md-12 col-sm-12 col-xs-12">
+
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Nueva Wiki</h2>
@@ -87,35 +88,89 @@
                             Cargando Wikis...
                         </div>
                         <div *ngIf="wikis">
+
                             <!-- CONTENIDO wiki-->
-                            <div class="col-md-6 col-sm-6 col-xs-6 profile_details">
-                                <div class="well profile_view" *ngFor="let wiki of wikis">
-                                    <div class="col-sm-6">
-                                        <h4 class="brief"><i>{{ wiki.tema }}</i></h4>
-                                        <div class="left col-xs-12">
-                                            <h2>{{ wiki.titulo }}</h2>
-                                            <p><strong> {{ wiki.usuario }} </strong>{{ wiki.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
-                                            <p><i class="fa fa-bug"></i></p>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12 profile_details" *ngFor="let wiki of wikis">
+                                        <div class="well profile_view">
+                                            <div class="col-sm-12">
+                                                <h4 class="brief"><i>{{ wiki.titulo }}</i></h4>
+                                                <div class="left col-xs-7">
+                                                    <h2>{{ wiki.usuario }}</h2>
+                                                    <p><strong>Fecha: </strong>{{ wiki.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fa fa-book"></i> Articulo: </li>
+                                                        <li>
+                                                            <p class="block-with-text-3lines">
+                                                                {{ wiki.articulo}}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="right col-xs-5 text-center">
+                                                    <img [src]="this.usuarioLogin?.img | imagen" alt="..." alt="" class="img-circle img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 bottom text-center">
+                                                <div class="col-xs-12 col-sm-6 emphasis">
+                                                    <p class="ratings">
+                                                        <a>4.0</a>
+                                                        <a href="#"><span class="fa fa-star"></span></a>
+                                                        <a href="#"><span class="fa fa-star"></span></a>
+                                                        <a href="#"><span class="fa fa-star"></span></a>
+                                                        <a href="#"><span class="fa fa-star"></span></a>
+                                                        <a href="#"><span class="fa fa-star-o"></span></a>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 emphasis">
+                                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                                        </i> <i class="fa fa-comments-o"></i> </button>
+                                                    <button type="button" class="btn btn-primary btn-xs">
+                                                        <i class="fa fa-user"> </i> View Profile
+                                                      </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 text-justify">
-                                        <p class="block-with-text-3lines">
-                                            {{ wiki.articulo}}
-                                        </p>
-                                    </div>
-                                    <div class="col-xs-6 bottom text-center">
-                                        <div class="col-xs-6 col-sm-6 emphasis">
-                                            <p class="ratings">
-                                                <a>4 Comentarios</a>
+
+                                    <!-- <div class="row well profile_view" *ngFor="let wiki of wikis">
+
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <h4 class="brief"><i>{{ wiki.tema }}</i></h4>
+                                            <div class="left col-md-12 col-sm-12 col-xs-12">
+                                                <h2>{{ wiki.titulo }}</h2>
+                                                <p><strong> {{ wiki.usuario }} </strong>{{ wiki.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
+                                                <p><i class="fa fa-bug"></i></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-justify">
+                                            <p class="block-with-text-3lines">
+                                                {{ wiki.articulo}}
                                             </p>
                                         </div>
-                                        <div class="col-xs-6 col-sm-6 emphasis">
-                                            <button type="button" class="btn btn-primary btn-xs pull-right">
+
+                                        <div class="row bottom text-center">
+                                            <div class="col-md-6 col-sm-6 col-xs-6 emphasis">
+                                                <p class="ratings">
+                                                    <a>4 Comentarios</a>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6 emphasis">
+                                                <button type="button" class="btn btn-primary btn-xs pull-right">
                                                 Ver wiki completa
                                                 <i class="fa fa-angle-double-right"></i>
                                             </button>
+                                            </div>
                                         </div>
-                                    </div>
+
+                                    </div> -->
+
                                 </div>
                             </div>
                             <!-- FIN CONTENIDO wiki-->
