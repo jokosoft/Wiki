@@ -1,5 +1,5 @@
 <div class="container body">
-    <div class="main_container">
+    <div class="main_container animate fadeIn fast">
 
         <app-sidebar></app-sidebar>
 
@@ -8,7 +8,7 @@
         <app-breadcrumbs></app-breadcrumbs>
 
         <!-- Contenido de la página -->
-        <router-outlet></router-outlet>
+        <router-outlet (activate)='onActivate()'></router-outlet>
 
         <app-footer></app-footer>
 

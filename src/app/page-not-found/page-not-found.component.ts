@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-declare function init_plugins();
 
 @Component({
   selector: 'app-page-not-found',
@@ -16,7 +15,6 @@ export class PageNotFoundComponent implements OnInit {
   }
 
   ngOnInit() {
-    init_plugins();
   }
 
 }

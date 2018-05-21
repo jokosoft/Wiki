@@ -7,7 +7,6 @@ import * as _swal from 'sweetalert';
 import { SweetAlert } from 'sweetalert/typings/core';
 const swal: any = _swal as any;
 
-declare function init_plugins();
 
 @Component({
   selector: 'app-temas',
@@ -29,7 +28,6 @@ public mostrarDetalle: Boolean = false;
    }
 
   ngOnInit() {
-    init_plugins();
   }
 
   nuevoTema(nombreTema: any) {

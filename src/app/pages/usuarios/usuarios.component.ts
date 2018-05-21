@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/Usuario.model';
 
-declare function init_plugins();
 
 @Component({
   selector: 'app-usuarios',
@@ -13,7 +12,6 @@ export class UsuariosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    init_plugins();
   }
 
 

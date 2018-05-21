@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Wiki } from '../../models/Wiki.model';
 import { TemasService, WikiService } from '../../service/service.index';
 
-declare function init_plugins();
-
 @Component({
   selector: 'app-wiki',
   templateUrl: './wiki.component.html',
@@ -25,7 +23,6 @@ public registroInicial = 'Cargando Temas...';
    }
 
   ngOnInit() {
-    init_plugins();
 
     // carga el listado de temas
     this._ts.listado()
@@ -47,8 +44,8 @@ public registroInicial = 'Cargando Temas...';
       this._ws.siguientePagina( ultimo )
         .subscribe((data: Wiki[]) => {
           if (data && data.length > 0) {
-            // this.wikis = this.wikis.concat(data);
-            this.wikis = data;
+             this.wikis = this.wikis.concat(data);
+            // this.wikis = data;
           }
       });
     }

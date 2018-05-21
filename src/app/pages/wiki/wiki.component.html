@@ -1,10 +1,10 @@
 <!-- page content -->
-<div class="right_col animate fadeIn fast" role="main">
+<div class="right_col" role="main">
     <div class="">
 
         <div class="clearfix"></div>
 
-        <div class="row">
+        <div class="row animate fadeIn fast">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -88,9 +88,9 @@
                         </div>
                         <div *ngIf="wikis">
                             <!-- CONTENIDO wiki-->
-                            <div class="col-md-6 col-sm-6 col-xs-6 profile_details" *ngFor="let wiki of wikis">
-                                <div class="well profile_view">
-                                    <div class="col-sm-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6 profile_details">
+                                <div class="well profile_view" *ngFor="let wiki of wikis">
+                                    <div class="col-sm-6">
                                         <h4 class="brief"><i>{{ wiki.tema }}</i></h4>
                                         <div class="left col-xs-12">
                                             <h2>{{ wiki.titulo }}</h2>
@@ -98,18 +98,18 @@
                                             <p><i class="fa fa-bug"></i></p>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 text-justify">
+                                    <div class="col-sm-6 text-justify">
                                         <p class="block-with-text-3lines">
                                             {{ wiki.articulo}}
                                         </p>
                                     </div>
-                                    <div class="col-xs-12 bottom text-center">
-                                        <div class="col-xs-12 col-sm-6 emphasis">
+                                    <div class="col-xs-6 bottom text-center">
+                                        <div class="col-xs-6 col-sm-6 emphasis">
                                             <p class="ratings">
                                                 <a>4 Comentarios</a>
                                             </p>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 emphasis">
+                                        <div class="col-xs-6 col-sm-6 emphasis">
                                             <button type="button" class="btn btn-primary btn-xs pull-right">
                                                 Ver wiki completa
                                                 <i class="fa fa-angle-double-right"></i>

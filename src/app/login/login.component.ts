@@ -4,8 +4,6 @@ import { LoginService } from '../service/service.index';
 import { URL_JOKOSOFT } from '../configuracion/config';
 import { Usuario } from '../models/Usuario.model';
 
-declare function init_plugins();
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,7 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    init_plugins();
 
     // se intenta obtener los datos del usuario de local storage, carga null si no existen aun
     this.usuarioLogin = this._ls.obtenerUsuarioLocalStorage();

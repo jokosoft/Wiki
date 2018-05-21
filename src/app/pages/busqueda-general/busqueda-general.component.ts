@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-declare function init_plugins();
-
 @Component({
   selector: 'app-busqueda-general',
   templateUrl: './busqueda-general.component.html',
@@ -23,7 +21,6 @@ public resultadoBusqueda: string;
    }
 
   ngOnInit() {
-    init_plugins();
   }
 
   buscar( termino: string ) {

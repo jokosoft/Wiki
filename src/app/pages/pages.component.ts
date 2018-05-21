@@ -1,12 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 
+declare function init_plugins();
+
+declare function init_Height();
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
   styles: []
 })
+
 export class PagesComponent implements OnInit {
+
+  private bPrimeraEntrada = true;
 
   constructor() {
     const body = document.getElementsByTagName('body')[0];
@@ -15,6 +24,14 @@ export class PagesComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.bPrimeraEntrada = false;
+    init_plugins();
+  }
+
+  onActivate() {
+    if (!this.bPrimeraEntrada) {
+    init_Height();
+    }
   }
 
 }
