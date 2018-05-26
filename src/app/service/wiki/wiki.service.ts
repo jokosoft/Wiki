@@ -31,7 +31,8 @@ public busquedaInicial() {
 }
 
   public listado(tema: string) {
-    return this.itemsCollection.valueChanges()
+    return this.itemsCollection
+            .valueChanges()
             .map( (wikis: Wiki[]) => {
               if (wikis.length > 0) {
                 this.wikis_pagina = wikis;

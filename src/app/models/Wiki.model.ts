@@ -3,6 +3,7 @@ import { Usuario } from './Usuario.model';
 export class Wiki {
     public _id?: string;
     public usuario: Usuario;
+    public urlfotoUsuario: string;
     public fecha: number;
     public tema: string;
     public titulo: string;
@@ -13,6 +14,7 @@ export class Wiki {
     constructor () {
         this._id = '';
         this.usuario = '';
+        this.urlfotoUsuario = '';
         this.fecha = 0;
         this.tema = '';
         this.titulo = '';

@@ -1,17 +1,29 @@
-<div *ngIf="!wikis" class="marg_L_10">
-    <i class="fa fa-refresh fa-spin"></i> Cargando Wikis...
+<!-- loader -->
+<div *ngIf="!wikis">
+    <div class="text-center animate fadeIn fast">
+        <h3><i class="fa fa-refresh fa-spin"></i> Cargando Wikis...</h3>
+    </div>
 </div>
+
+<!-- mensaje 'no resultados' -->
+<div *ngIf="wikis?.length == 0">
+    <div class="text-center animate fadeIn fast">
+        <h3><i class="fa fa-frown-o"></i> No hay Wikis Registradas.</h3>
+    </div>
+</div>
+
 <div *ngIf="wikis">
 
-    <!-- CONTENIDO wiki-->
-
+    <!-- listado de tarjetas wiki -->
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
 
-            <div class="col-md-6 col-sm-6 col-xs-12 profile_details" *ngFor="let wiki of wikis">
+            <div class="col-md-6 col-sm-6 col-xs-12 profile_details animate fadeIn fast" *ngFor="let wiki of wikis">
                 <div class="well profile_view">
                     <div class="col-sm-12">
                         <h4 class="brief"><i>{{ wiki.titulo }}</i></h4>
+                        <br/>
+                        <h5 class="brief"><i>{{ wiki.tema }}</i></h5>
                         <div class="left col-xs-7">
                             <h2>{{ wiki.usuario }}</h2>
                             <p><strong>Fecha: </strong>{{ wiki.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
@@ -25,7 +37,7 @@
                             </ul>
                         </div>
                         <div class="right col-xs-5 text-center">
-                            <img [src]="this.usuarioLogin?.img | imagen" alt="..." alt="" class="img-circle img-responsive">
+                            <img [src]="wiki.urlfotoUsuario | imagen" alt="..." alt="" class="img-circle img-responsive">
                         </div>
                     </div>
                     <div class="col-xs-12 bottom text-center">
@@ -55,10 +67,11 @@
         </div>
 
     </div>
-    <!-- FIN CONTENIDO wiki-->
+    <!-- fin listado de tarjetas wiki -->
 
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12 profile_details marg_L_10">
+    <!-- botonera paginado wikis -->
+    <div class="row" *ngIf="wikis?.length > 0">
+        <div class="col-md-6 col-sm-6 col-xs-12 profile_details marg_L_10 animate fadeIn fast">
 
             <button class="btn btn-success waves-effect waves-light" (click)="paginaInicio()">
               Inicio
@@ -70,5 +83,6 @@
 
         </div>
     </div>
+    <!-- fin botonera paginado wikis -->
 
 </div>

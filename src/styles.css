@@ -73,3 +73,7 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 }
+
+.colorFuente {
+    color: #73879C;
+}

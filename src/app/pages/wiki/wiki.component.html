@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label>Tema de la Wiki</label>
                                 <select [(ngModel)]="wiki.tema" name="tema" class="form-control" required>
-                                  <option value="">{{registroInicial}}</option>
+                                  <option value=""><span class="colorFuente">{{registroInicial}}</span></option>
                                   <option *ngFor="let tema of temas" [value]="tema">
                                     {{ tema }}
                                   </option>
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <app-tarjetas-wiki [wikis]='wikis' [usuarioLogin]='usuarioLogin'>
+            <app-tarjetas-wiki [wikis]='wikis'>
             </app-tarjetas-wiki>
 
         </div>

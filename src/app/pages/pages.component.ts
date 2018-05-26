@@ -30,7 +30,7 @@ export class PagesComponent implements OnInit {
 
   onActivate() {
     if (!this.bPrimeraEntrada) {
-    init_Height();
+      init_Height();
     }
   }
 

@@ -11,7 +11,6 @@ import { WikiService } from '../../../service/service.index';
 export class TarjetasWikiComponent implements OnInit {
 
   @Input() wikis: Wiki[];
-  @Input() usuarioLogin: Usuario = null;
 
   constructor( public _ws: WikiService ) {
 
@@ -27,7 +26,6 @@ export class TarjetasWikiComponent implements OnInit {
         .subscribe((data: Wiki[]) => {
           if (data && data.length > 0) {
              this.wikis = this.wikis.concat(data);
-            // this.wikis = data;
           }
       });
     }

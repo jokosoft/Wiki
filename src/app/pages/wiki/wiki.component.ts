@@ -25,7 +25,7 @@ public usuarioLogin: Usuario = null;
     this.wiki = new Wiki();
 
     // carga los datos del usuario logado
-    this.usuarioLogin = _ls.obtenerUsuarioLocalStorage()
+    this.usuarioLogin = _ls.obtenerUsuarioLocalStorage();
    }
 
   ngOnInit() {
@@ -38,16 +38,29 @@ public usuarioLogin: Usuario = null;
       } );
 
       // Carga listado wikis
-      this._ws.listado('')
-        .subscribe((data) => {
-          this.wikis = data;
-        });
+      this.cargarListado();
   }
 
   guardarWiki(forma) {
-    this._ws.insertar(forma.value);
+    // se obtinen los datos del formulario
+    let insertWiki: Wiki = forma.value;
+
+    // se añden los datos del usurio que inserta la nueva wiki
+    insertWiki.usuario = this.usuarioLogin.nombre;
+    insertWiki.urlfotoUsuario = this.usuarioLogin.img;
+
+    this._ws.insertar(insertWiki);
     this.wiki = new Wiki;
-    //this.paginaInicio();
+    // recarga el listado, reiniciendo la posible paginacion
+    // this.cargarListado();
+  }
+
+  // Carga listado wikis
+  cargarListado() {
+    this._ws.listado('')
+        .subscribe((data) => {
+          this.wikis = data;
+        });
   }
 
 }
