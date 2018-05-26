@@ -16,6 +16,7 @@ import { UsuariosBusquedaComponent } from './usuarios/busqueda/usuarios-busqueda
 import { UsuariosAltaEdicionComponent } from './usuarios/alta-modificacion/usuarios-alta-edicion.component';
 import { TemasComponent } from './temas/temas.component';
 import { WikiComponent } from './wiki/wiki.component';
+import { TarjetasWikiComponent } from './wiki/tarjetas-wiki/tarjetas-wiki.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { WikiComponent } from './wiki/wiki.component';
     UsuariosBusquedaComponent,
     UsuariosAltaEdicionComponent,
     TemasComponent,
-    WikiComponent]
+    WikiComponent,
+    TarjetasWikiComponent]
 })
 export class PagesModule { }

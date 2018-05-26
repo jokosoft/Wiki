@@ -44,31 +44,10 @@ public usuarioLogin: Usuario = null;
         });
   }
 
-  paginaSiguiente() {
-    if (this.wikis && this.wikis.length > 0) {
-      let ultimo: number = this.wikis[ this.wikis.length - 1 ].fecha;
-      this._ws.siguientePagina( ultimo )
-        .subscribe((data: Wiki[]) => {
-          if (data && data.length > 0) {
-             this.wikis = this.wikis.concat(data);
-            // this.wikis = data;
-          }
-      });
-    }
-  }
-
-  paginaInicio() {
-    this._ws.busquedaInicial();
-    this._ws.listado('')
-        .subscribe((data) => {
-          this.wikis = data;
-        });
-  }
-
   guardarWiki(forma) {
     this._ws.insertar(forma.value);
     this.wiki = new Wiki;
-    this.paginaInicio();
+    //this.paginaInicio();
   }
 
 }
